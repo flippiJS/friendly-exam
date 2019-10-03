@@ -7,23 +7,21 @@
 <div class="container">
     <app-busqueda (buscar)="MostrarElemento($event)"></app-busqueda>
     <div *ngIf="lista != null">
-        <table border="1" style="width:100%">
-            <thead>
+        <table class="table">
+            <thead class="thead-primary">
                 <th>ID</th>
                 <th>Modelo</th>
                 <th>Marca</th>
                 <th>Precio</th>
-                <th>Puertas</th>
-                <th>Foto</th>
+                <th>Foto</th> 
             </thead>
             <tbody>
                 <ng-container *ngFor="let item of lista">
                     <tr>
                         <td>{{ item.id }}</td>
-                        <td>{{ item.modelo }}</td>
-                        <td>{{ item.marca }}</td>
-                        <td>{{ item.precio }}</td>
-                        <td>{{ item.cantidadPuertas }}</td>
+                        <td>{{ item.title }}</td>
+                        <td>{{ item.content }}</td>
+                        <td>{{ item.createdAt }}</td>
                         <td>
                             <img [src]="item.RutaDeFoto" class="autoFoto" />
                         </td>

@@ -1,20 +1,11 @@
 <form [formGroup]="busquedaGroup">
-    <table>
-        <tbody>
-            <tr>
-                <td><label>Modelo</label></td>
-                <td>
-                    <input formControlName="modelo" [ngClass]="{
-                invalido:
-                  !busquedaGroup.controls.modelo.valid &&
-                  busquedaGroup.controls.modelo.touched,
-                valido: busquedaGroup.controls.modelo.valid
-              }" />
-                </td>
-                <td>
-                    <button (click)="Buscar()" [disabled]="busquedaGroup.invalid">Buscar</button>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+    <div class="input-group mb-3">
+        <input type="text" class="form-control" formControlName="modelo" [ngClass]="{
+                invalido: !busquedaGroup.controls.modelo.valid && busquedaGroup.controls.modelo.touched, valido: busquedaGroup.controls.modelo.valid
+              }"
+            placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <div class="input-group-prepend">
+            <button class="btn btn-outline-primary" type="button" (click)="Buscar()" [disabled]="busquedaGroup.invalid">Buscar</button>
+        </div>
+    </div>
 </form>
