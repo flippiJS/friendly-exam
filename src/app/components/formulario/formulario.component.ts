@@ -9,28 +9,33 @@ import { LibrosService } from 'src/app/services/libros.service';
 })
 export class FormularioComponent implements OnInit {
   public addLibroForm: FormGroup;
+  isLoading: boolean = false;
+  submitted = false;
 
   constructor(private librosService: LibrosService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.addLibroForm = this.formBuilder.group({
-      email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(6)]],
-      confirmPassword: ['', Validators.required],
-      acceptTerms: [false, Validators.requiredTrue]
+      marca: ['', [Validators.required]],
+      precio: ['', [Validators.required, Validators.minLength(1)]],
+      foto: ['', Validators.required]
     });
   }
 
+  // para acceder facilmente a los controles del form
+  get f() { return this.addLibroForm.controls; }
+
   onRegistrar() {
+    this.submitted = true;
     // si es invalido nada
     if (this.addLibroForm.invalid) {
       return;
     }
-    const request = { libro: this.addLibroForm.value };
-
+    const request = this.addLibroForm.value;
+    console.log('Cargare el obj: ' + request);
     this.librosService.addLibro(request).subscribe((rta: any) => {
-      // console.log(rta);
-      if (rta.ok) {
+      console.log('Respuesta de alta ', rta);
+      if (rta.status == 200) {
         console.log('Cargado');
       }
     });

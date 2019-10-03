@@ -9,29 +9,27 @@
     <form [formGroup]="addLibroForm" (ngSubmit)="onRegistrar()">
 
         <div class="form-group mb-3">
-            <input type="text" formControlName="email" placeholder="Correo electronico" class="form-control rounded-pill border-0 shadow-sm px-4"
-                [ngClass]="{ 'is-invalid': submitted && f.email.errors }" />
-            <div *ngIf="submitted && f.email.errors" class="invalid-feedback">
-                <div *ngIf="f.email.errors.required">Debe ingresar email</div>
-                <div *ngIf="f.email.errors.email">Email debe ser valido</div>
+            <input type="text" formControlName="marca" placeholder="Marca" class="form-control rounded-pill border-0 shadow-sm px-4"
+                [ngClass]="{ 'is-invalid': submitted && f.marca.errors }" />
+            <div *ngIf="submitted && f.marca.errors" class="invalid-feedback">
+                <div *ngIf="f.marca.errors.required">Debe ingresar Marca</div>
             </div>
         </div>
 
         <div class="form-group mb-3">
-            <input type="password" formControlName="password" placeholder="Contraseña" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-                [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
-            <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
-                <div *ngIf="f.password.errors.required">Debe ingresar contraseña</div>
-                <div *ngIf="f.password.errors.minlength">Debe contener al menos 6 caracteres</div>
+            <input type="text" formControlName="precio" placeholder="Precio" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                [ngClass]="{ 'is-invalid': submitted && f.precio.errors }" />
+            <div *ngIf="submitted && f.precio.errors" class="invalid-feedback">
+                <div *ngIf="f.precio.errors.required">Debe ingresar Precio</div>
+                <div *ngIf="f.precio.errors.minlength">Debe contener al menos 1 digito</div>
             </div>
         </div>
 
         <div class="form-group mb-3">
-            <input type="password" formControlName="confirmPassword" placeholder="Contraseña nuevamente" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-                [ngClass]="{ 'is-invalid': submitted && f.confirmPassword.errors }" />
-            <div *ngIf="submitted && f.confirmPassword.errors" class="invalid-feedback">
-                <div *ngIf="f.confirmPassword.errors.required">Debe ingresar contraseña nuevamente</div>
-                <div *ngIf="f.confirmPassword.errors.mustMatch">Las contraseña deben coincidir</div>
+            <input type="text" formControlName="foto" placeholder="Foto" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                [ngClass]="{ 'is-invalid': submitted && f.foto.errors }" />
+            <div *ngIf="submitted && f.foto.errors" class="invalid-feedback">
+                <div *ngIf="f.foto.errors.required">Debe ingresar Foto</div>
             </div>
         </div>
 
