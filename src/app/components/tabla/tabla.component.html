@@ -1,23 +1,22 @@
 <div class="container">
     <table class="table">
         <thead class="thead-primary">
-            <th>ID</th>
-            <th>Modelo</th>
+            <th>ID #</th>
             <th>Marca</th>
             <th>Precio</th>
-            <!-- <th>Foto</th> -->
+            <th>Foto</th>
             <th>Accion</th>
         </thead>
         <tbody>
             <ng-container *ngFor="let item of lista">
                 <tr>
                     <td>{{ item.id }}</td>
-                    <td>{{ item.title }}</td>
-                    <td>{{ item.content }}</td>
-                    <td>{{ item.createdAt }}</td>
-                    <!-- <td>
-                    <img [src]="item.RutaDeFoto" class="autoFoto" />
-                </td> -->
+                    <td>{{ item.marca }}</td>
+                    <td>{{ item.precio }}</td>
+                    <td>
+                        <img style="
+                        width: 50px;" [src]="item.foto ? item.foto : 'assets/img/book.png'" class="autoFoto" />
+                    </td>
                     <td>
                         <app-boton (recargar)="recargarLista($event)" [id]="item.id">
                         </app-boton>
