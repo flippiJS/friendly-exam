@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { LibrosService, Libro } from '../../services/libros.service';
+import { PeliculasService } from '../../services/peliculas.service';
 import { TablaComponent } from '../tabla/tabla.component';
+import { Pelicula } from '../../clases/pelicula';
 
 @Component({
   selector: 'app-lista',
@@ -9,8 +10,8 @@ import { TablaComponent } from '../tabla/tabla.component';
 })
 
 export class ListaComponent implements OnInit {
-  public listado: Array<Libro>;
-  constructor(private http: LibrosService) { }
+  public listado: Array<Pelicula>;
+  constructor(private http: PeliculasService) { }
 
   ngOnInit() {
     console.log('Llamo a traerLibros');
@@ -18,7 +19,7 @@ export class ListaComponent implements OnInit {
   }
 
   public CargarLista() {
-    this.http.getLibros().subscribe((data: any) => {
+    this.http.getPeliculas().subscribe((data: any) => {
       /* console.log(data.rta);
       this.listado = data.rta; */
       console.log(data);

@@ -1,11 +1,11 @@
 <form [formGroup]="busquedaGroup">
-    <div class="input-group mb-3">
-        <input type="text" class="form-control" formControlName="modelo" [ngClass]="{
-                invalido: !busquedaGroup.controls.modelo.valid && busquedaGroup.controls.modelo.touched, valido: busquedaGroup.controls.modelo.valid
-              }"
-            placeholder="" aria-label="Example text with button addon" aria-describedby="button-addon1">
-        <div class="input-group-prepend">
-            <button class="btn btn-outline-primary" type="button" (click)="Buscar()" [disabled]="busquedaGroup.invalid">Buscar</button>
-        </div>
+  <div class="input-group mb-3">
+    <input type="text" class="form-control" formControlName="nombre" [ngClass]="{
+                invalido: !busquedaGroup.controls.nombre.valid && busquedaGroup.controls.nombre.touched, valido: busquedaGroup.controls.nombre.valid
+              }" placeholder="Buscar por nombre de una peli" aria-describedby="button-addon1">
+    <div class="input-group-prepend">
+      <button class="btn btn-outline-primary" type="button" (click)="Buscar()"
+        [disabled]="busquedaGroup.invalid">Buscar</button>
     </div>
+  </div>
 </form>

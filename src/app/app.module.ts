@@ -15,6 +15,11 @@ import { FormularioComponent } from './components/formulario/formulario.componen
 import { BotonComponent } from './components/boton/boton.component';
 import { BusquedaComponent } from './components/busqueda/busqueda.component';
 import { BuscarComponent } from './components/buscar/buscar.component';
+import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
+import { AltaPeliComponent } from './components/alta-peli/alta-peli.component';
+import { AltaActorComponent } from './components/alta-actor/alta-actor.component';
+import { ListaActorComponent } from './components/lista-actor/lista-actor.component';
+import { TablaActorComponent } from './components/tabla-actor/tabla-actor.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +30,12 @@ import { BuscarComponent } from './components/buscar/buscar.component';
     FormularioComponent,
     BotonComponent,
     BusquedaComponent,
-    BuscarComponent
+    BuscarComponent,
+    BienvenidoComponent,
+    AltaPeliComponent,
+    AltaActorComponent,
+    ListaActorComponent,
+    TablaActorComponent
   ],
   imports: [
     BrowserModule,

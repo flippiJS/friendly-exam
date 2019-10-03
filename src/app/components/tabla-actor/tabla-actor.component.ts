@@ -1,13 +1,13 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Pelicula } from '../../clases/pelicula';
+import { Actor } from '../../clases/actor';
 
 @Component({
-  selector: 'app-tabla',
-  templateUrl: './tabla.component.html',
-  styleUrls: ['./tabla.component.scss']
+  selector: 'app-tabla-actor',
+  templateUrl: './tabla-actor.component.html',
+  styleUrls: ['./tabla-actor.component.scss']
 })
-export class TablaComponent implements OnInit {
-  @Input() lista: Array<Pelicula>;
+export class TablaActorComponent implements OnInit {
+  @Input() lista: Array<Actor>;
   @Output() recargar = new EventEmitter<boolean>();
 
   constructor() { }

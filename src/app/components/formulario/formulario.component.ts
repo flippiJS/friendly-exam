@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { LibrosService } from 'src/app/services/libros.service';
+import { PeliculasService } from 'src/app/services/peliculas.service';
 
 @Component({
   selector: 'app-formulario',
@@ -12,7 +12,7 @@ export class FormularioComponent implements OnInit {
   isLoading: boolean = false;
   submitted = false;
 
-  constructor(private librosService: LibrosService, private formBuilder: FormBuilder) { }
+  constructor(private peliculasService: PeliculasService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
     this.addLibroForm = this.formBuilder.group({
@@ -33,7 +33,7 @@ export class FormularioComponent implements OnInit {
     }
     const request = this.addLibroForm.value;
     console.log('Cargare el obj: ' + request);
-    this.librosService.addLibro(request).subscribe((rta: any) => {
+    this.peliculasService.addLibro(request).subscribe((rta: any) => {
       console.log('Respuesta de alta ', rta);
       if (rta.status == 200) {
         console.log('Cargado');
