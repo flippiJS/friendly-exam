@@ -18,7 +18,7 @@ export class LibrosService {
   private _URL = 'http://localhost:3535/api/v1/';
 
   public getLibro(id: any) {
-    return this.httpClient.get(this._URL + 'book/' + id);
+    return this.httpClient.get(this._URL + 'books/' + id);
   }
 
   public getLibros() {
@@ -26,14 +26,14 @@ export class LibrosService {
   }
 
   public addLibro(data: any) {
-    return this.httpClient.post(this._URL, data);
+    return this.httpClient.post(this._URL + 'books', data);
   }
 
   public updateLibro(data: any) {
-    return this.httpClient.put(this._URL, data);
+    return this.httpClient.put(this._URL + 'books', data);
   }
 
-  public deleteLibro(idAux: any) {
-    return this.httpClient.post(this._URL + 'remove', { id: idAux });
+  public deleteLibro(id: any) {
+    return this.httpClient.delete(this._URL + 'books/' + id);
   }
 }

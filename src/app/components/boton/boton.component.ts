@@ -7,21 +7,21 @@ import { LibrosService } from 'src/app/services/libros.service';
   styleUrls: ['./boton.component.scss']
 })
 export class BotonComponent implements OnInit {
-  @Input() idAuto: string;
-  @Output() public borrar = new EventEmitter<boolean>();
+  @Input() id: number;
+  @Output() public recargar = new EventEmitter<boolean>();
 
   constructor(private librosService: LibrosService) { }
 
   ngOnInit() {
   }
 
-  public Eliminar(id: string) {
-    // console.log('Eliminaré el id: ' + id);
+  public Eliminar(id: number) {
+    console.log('Eliminaré el id: ' + id);
     this.librosService.deleteLibro(id).subscribe((rta: any) => {
       console.log('Respuesta de eliminar ', rta);
-      if (rta.resp === 'ok') {
+      if (rta.status == 200) {
         console.log('Emito el evento desde Button');
-        this.borrar.emit(true);
+        this.recargar.emit(true);
       }
     });
   }
