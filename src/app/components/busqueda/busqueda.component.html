@@ -1,0 +1,20 @@
+<form [formGroup]="busquedaGroup">
+    <table>
+        <tbody>
+            <tr>
+                <td><label>Modelo</label></td>
+                <td>
+                    <input formControlName="modelo" [ngClass]="{
+                invalido:
+                  !busquedaGroup.controls.modelo.valid &&
+                  busquedaGroup.controls.modelo.touched,
+                valido: busquedaGroup.controls.modelo.valid
+              }" />
+                </td>
+                <td>
+                    <button (click)="Buscar()" [disabled]="busquedaGroup.invalid">Buscar</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</form>
