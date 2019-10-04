@@ -9,35 +9,43 @@
   <form [formGroup]="addActorForm" (ngSubmit)="onCrear()">
 
     <div class="form-group mb-3">
-      <input type="text" formControlName="marca" placeholder="Marca"
+      <input type="text" formControlName="nombre" placeholder="Nombre"
         class="form-control rounded-pill border-0 shadow-sm px-4"
-        [ngClass]="{ 'is-invalid': submitted && f.marca.errors }" />
-      <div *ngIf="submitted && f.marca.errors" class="invalid-feedback">
-        <div *ngIf="f.marca.errors.required">Debe ingresar Marca</div>
+        [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+      <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+        <div *ngIf="f.nombre.errors.required">Debe ingresar nombre</div>
       </div>
     </div>
 
     <div class="form-group mb-3">
-      <input type="text" formControlName="precio" placeholder="Precio"
+      <input type="text" formControlName="apellido" placeholder="Apellido"
         class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-        [ngClass]="{ 'is-invalid': submitted && f.precio.errors }" />
-      <div *ngIf="submitted && f.precio.errors" class="invalid-feedback">
-        <div *ngIf="f.precio.errors.required">Debe ingresar Precio</div>
-        <div *ngIf="f.precio.errors.minlength">Debe contener al menos 1 digito</div>
+        [ngClass]="{ 'is-invalid': submitted && f.apellido.errors }" />
+      <div *ngIf="submitted && f.apellido.errors" class="invalid-feedback">
+        <div *ngIf="f.apellido.errors.required">Debe ingresar apellido</div>
       </div>
     </div>
 
     <div class="form-group mb-3">
-      <input type="text" formControlName="foto" placeholder="Foto"
+      <input type="text" formControlName="nacionalidad" placeholder="Nacionalidad"
         class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-        [ngClass]="{ 'is-invalid': submitted && f.foto.errors }" />
-      <div *ngIf="submitted && f.foto.errors" class="invalid-feedback">
-        <div *ngIf="f.foto.errors.required">Debe ingresar Foto</div>
+        [ngClass]="{ 'is-invalid': submitted && f.nacionalidad.errors }" />
+      <div *ngIf="submitted && f.nacionalidad.errors" class="invalid-feedback">
+        <div *ngIf="f.nacionalidad.errors.required">Debe ingresar nacionalidad</div>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <input type="text" formControlName="fechaNacimiento" placeholder="Fecha Nacimiento"
+        class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+        [ngClass]="{ 'is-invalid': submitted && f.fechaNacimiento.errors }" />
+      <div *ngIf="submitted && f.fechaNacimiento.errors" class="invalid-feedback">
+        <div *ngIf="f.fechaNacimiento.errors.required">Debe ingresar fecha Nacimiento</div>
       </div>
     </div>
 
     <button *ngIf="!isLoading" type="submit"
-      class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Registrar</button>
+      class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Crear</button>
 
     <div *ngIf="isLoading" class="d-flex justify-content-center">
       <div class="spinner-border" role="status">

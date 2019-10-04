@@ -1,0 +1,31 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">LOGIN</h1>
+    <p class="lead"></p>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-10 col-xl-7 mx-auto">
+      <h3 class="display-4">Inicia sesión</h3>
+      <form class="container" [formGroup]="myForm" (ngSubmit)="onLogin()">
+        <div class="form-group mb-3">
+          <input id="inputEmail" formControlName="user" type="email" placeholder="Correo electronico" required="" autofocus=""
+            class="form-control rounded-pill border-0 shadow-sm px-4">
+        </div>
+        <div class="form-group mb-3">
+          <input id="inputPassword" formControlName="pass" type="password" placeholder="Contraseña" required=""
+            class="form-control rounded-pill border-0 shadow-sm px-4 text-primary">
+        </div>
+        <button *ngIf="!isLoading" type="submit"
+          class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Ingresar</button>
+        <div *ngIf="isLoading" class="d-flex justify-content-center">
+          <div class="spinner-border" role="status">
+            <span class="sr-only">Loading...</span>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+</div><!-- End -->

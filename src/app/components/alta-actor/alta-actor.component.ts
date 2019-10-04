@@ -19,13 +19,13 @@ export class AltaActorComponent implements OnInit {
       nombre: ['', [Validators.required]],
       apellido: ['', [Validators.required]],
       nacionalidad: ['', Validators.required],
-      fechaNcimiento: ['', Validators.required]
+      fechaNacimiento: ['', Validators.required]
     });
   }
   // para acceder facilmente a los controles del form
   get f() { return this.addActorForm.controls; }
 
-  onRegistrar() {
+  onCrear() {
     this.submitted = true;
     // si es invalido nada
     if (this.addActorForm.invalid) {
@@ -37,7 +37,14 @@ export class AltaActorComponent implements OnInit {
       console.log('Respuesta de alta ', rta);
       if (rta.status == 200) {
         console.log('Cargado');
+        this.onReset();
       }
     });
   }
+
+  onReset() {
+    this.submitted = false;
+    this.addActorForm.reset();
+  }
+
 }

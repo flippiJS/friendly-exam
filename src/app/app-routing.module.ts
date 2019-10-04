@@ -9,14 +9,25 @@ import { BienvenidoComponent } from './components/bienvenido/bienvenido.componen
 import { AltaPeliComponent } from './components/alta-peli/alta-peli.component';
 import { AltaActorComponent } from './components/alta-actor/alta-actor.component';
 import { ListaActorComponent } from './components/lista-actor/lista-actor.component';
+import { ListaPeliculaActorComponent } from './components/lista-pelicula-actor/lista-pelicula-actor.component';
+import { AuthGuardService } from './guards/auth-guard.service';
+import { LoginComponent } from './components/login/login.component';
 
 const routes: Routes = [
   { path: 'bienvenido', component: BienvenidoComponent },
   { path: 'busqueda', component: BuscarComponent },
-  { path: 'peliculas/alta', component: AltaPeliComponent },
-  { path: 'actor/alta', component: AltaActorComponent },
+  {
+    path: 'peliculas/alta', component: AltaPeliComponent,
+    canActivate: [AuthGuardService]
+  },
+  {
+    path: 'actor/alta', component: AltaActorComponent,
+    canActivate: [AuthGuardService]
+  },
   { path: 'actor/listado', component: ListaActorComponent },
+  { path: 'actor/detail/:id', component: ListaPeliculaActorComponent },
   { path: 'peliculas/listado', component: ListaComponent },
+  { path: 'login', component: LoginComponent },
   { path: '', redirectTo: '/bienvenido', pathMatch: 'full' },
   { path: '**', redirectTo: '/bienvenido', pathMatch: 'full' },
 ];

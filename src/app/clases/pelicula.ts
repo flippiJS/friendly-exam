@@ -6,6 +6,7 @@ export abstract class Pelicula {
   fechaEstreno: string;
   cantidadPublico: string;
   foto: string;
+  actorPrincipal: string;
 
   constructor() {
   }
