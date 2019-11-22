@@ -11,4 +11,14 @@ export class AuthService {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     return usuario !== null;
   }
+
+  public getTipo(): number {
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    return usuario.tipo;
+  }
+
+  public getUsuario(): number {
+    const usuario = JSON.parse(localStorage.getItem('usuario'));
+    return usuario;
+  }
 }

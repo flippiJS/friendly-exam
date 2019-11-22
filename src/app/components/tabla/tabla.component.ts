@@ -1,5 +1,4 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Pelicula } from '../../clases/pelicula';
 
 @Component({
   selector: 'app-tabla',
@@ -7,7 +6,7 @@ import { Pelicula } from '../../clases/pelicula';
   styleUrls: ['./tabla.component.scss']
 })
 export class TablaComponent implements OnInit {
-  @Input() lista: Array<Pelicula>;
+  @Input() lista:[];
   @Output() recargar = new EventEmitter<boolean>();
 
   constructor() { }

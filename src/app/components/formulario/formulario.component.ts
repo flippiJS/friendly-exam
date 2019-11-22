@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
-import { PeliculasService } from 'src/app/services/peliculas.service';
+import { UsuarioService } from 'src/app/services/usuario.service';
 
 @Component({
   selector: 'app-formulario',
@@ -8,32 +8,33 @@ import { PeliculasService } from 'src/app/services/peliculas.service';
   styleUrls: ['./formulario.component.scss']
 })
 export class FormularioComponent implements OnInit {
-  public addLibroForm: FormGroup;
+  public addUsuarioForm: FormGroup;
   isLoading: boolean = false;
   submitted = false;
 
-  constructor(private peliculasService: PeliculasService, private formBuilder: FormBuilder) { }
+  constructor(private usuarioService: UsuarioService, private formBuilder: FormBuilder) { }
 
   ngOnInit() {
-    this.addLibroForm = this.formBuilder.group({
-      marca: ['', [Validators.required]],
-      precio: ['', [Validators.required, Validators.minLength(1)]],
-      foto: ['', Validators.required]
+    this.addUsuarioForm = this.formBuilder.group({
+      mail: ['', [Validators.required]],
+      clave: ['', [Validators.required, Validators.minLength(1)]],
+      clave2: ['', [Validators.required, Validators.minLength(1)]],
+      tipo: ['', Validators.required]
     });
   }
 
   // para acceder facilmente a los controles del form
-  get f() { return this.addLibroForm.controls; }
+  get f() { return this.addUsuarioForm.controls; }
 
   onRegistrar() {
     this.submitted = true;
     // si es invalido nada
-    if (this.addLibroForm.invalid) {
+    if (this.addUsuarioForm.invalid) {
       return;
     }
-    const request = this.addLibroForm.value;
+    const request = this.addUsuarioForm.value;
     console.log('Cargare el obj: ' + request);
-    this.peliculasService.addLibro(request).subscribe((rta: any) => {
+    this.usuarioService.addLibro(request).subscribe((rta: any) => {
       console.log('Respuesta de alta ', rta);
       if (rta.status == 200) {
         console.log('Cargado');
