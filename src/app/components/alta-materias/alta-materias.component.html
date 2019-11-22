@@ -1,0 +1,58 @@
+<div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-4">Agregar materias</h1>
+    <p class="lead"></p>
+  </div>
+</div>
+<div class="container">
+
+  <form [formGroup]="addMateriaForm" (ngSubmit)="onCrear()">
+
+    <div class="form-group mb-3">
+      <input type="text" formControlName="nombre" placeholder="Nombre"
+        class="form-control rounded-pill border-0 shadow-sm px-4"
+        [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+      <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+        <div *ngIf="f.nombre.errors.required">Debe ingresar nombre</div>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <input type="text" formControlName="cuatrimestre" placeholder="Cuatrimestre"
+        class="form-control rounded-pill border-0 shadow-sm px-4"
+        [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+      <div *ngIf="submitted && f.cuatrimestre.errors" class="invalid-feedback">
+        <div *ngIf="f.cuatrimestre.errors.required">Debe ingresar cuatrimestre</div>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <input type="text" formControlName="cupos" placeholder="Cupos"
+        class="form-control rounded-pill border-0 shadow-sm px-4"
+        [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+      <div *ngIf="submitted && f.cupos.errors" class="invalid-feedback">
+        <div *ngIf="f.cupos.errors.required">Debe ingresar cupos</div>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <select  class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" formControlName="profesor" id="profesor">
+        <option *ngFor="let tip of listadoProfesores; let i = index" [value]="listadoProfesores[i].mail">
+          {{tip.mail}}
+        </option>
+      </select>
+      <div *ngIf="submitted && f.profesor.errors" class="invalid-feedback">
+        <div *ngIf="f.profesor.errors.required">Debe seleccionar profesor</div>
+      </div>
+    </div>
+
+    <button *ngIf="!isLoading" type="submit"
+      class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Crear</button>
+
+    <div *ngIf="isLoading" class="d-flex justify-content-center">
+      <div class="spinner-border" role="status">
+        <span class="sr-only">Loading...</span>
+      </div>
+    </div>
+  </form>
+</div>

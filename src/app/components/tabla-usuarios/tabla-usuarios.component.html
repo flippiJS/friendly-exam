@@ -1,0 +1,22 @@
+<div class="container">
+  <table class="table">
+    <thead class="thead-primary">
+      <th>ID #</th>
+      <th>Mail</th>
+      <th>Tipo</th>
+    </thead>
+    <tbody>
+      <ng-container *ngFor="let item of lista; let i = index">
+        <tr>
+          <td>{{ i }}</td>
+          <td>{{ item.mail }}</td>
+          <td>{{ item.tipo | tipoUsuario }}</td>
+          <td>
+<!--             <app-boton (recargar)="recargarLista($event)" [id]="item.id">
+            </app-boton> -->
+          </td>
+        </tr>
+      </ng-container>
+    </tbody>
+  </table>
+</div>
