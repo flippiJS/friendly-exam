@@ -26,8 +26,8 @@ export class MateriasService {
     return this.http.post(`${environment.URL}/inscripciones`, { materia: materia, usuario: usuario, nota: 0 }).pipe(response => response);
   }
 
-  materiasPorAlumno() {
-    return this.http.get(`${environment.URL}/materias/porAlumno`).pipe(response => response);
+  materiasPorAlumno(id: any) {
+    return this.http.post(`${environment.URL}/materias/porAlumno`, {id: id}).pipe(response => response);
   }
 
   alumnosPorMateria() {
