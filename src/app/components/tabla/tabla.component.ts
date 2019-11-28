@@ -7,6 +7,8 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 })
 export class TablaComponent implements OnInit {
   @Input() lista:[];
+  @Input() columnas:[];
+  @Input() keys:[];
   @Output() recargar = new EventEmitter<boolean>();
 
   constructor() { }

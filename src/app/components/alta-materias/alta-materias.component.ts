@@ -23,7 +23,7 @@ export class AltaMateriasComponent implements OnInit {
       profesor: ['', Validators.required]
     });
 
-    this.listadoProfesores = this.usuarioService.obtenerUsuario().filter(usr => {
+    this.listadoProfesores = this.usuarioService.obtenerUsuarios().filter(usr => {
       return (usr.tipo == 2);
     });
     this.addMateriaForm.controls.profesor.patchValue(this.listadoProfesores[0].mail);

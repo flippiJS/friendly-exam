@@ -1,26 +1,15 @@
 <div class="container">
   <table class="table">
+    <caption *ngIf="caption">{{ caption }}</caption>
     <thead class="thead-primary">
-      <th>ID #</th>
-      <th>Nombre</th>
-      <th>Cuatrimestre</th>
-      <th>Cupo</th>
-      <th>Profesor</th>
+      <tr>
+        <th *ngFor="let col of columnas">{{ col }}</th>
+      </tr>
     </thead>
     <tbody>
-      <ng-container *ngFor="let item of lista; let i = index">
-        <tr>
-          <td>{{ i }}</td>
-          <td>{{ item.nombre }}</td>
-          <td>{{ item.cuatrimestre }}</td>
-          <td appCupo [cupo]="item.cupos">{{ item.cupos }}</td>
-          <td>{{ item.profesor }}</td>
-          <td>
-<!--             <app-boton (recargar)="recargarLista($event)" [id]="item.id">
-            </app-boton> -->
-          </td>
-        </tr>
-      </ng-container>
+      <tr *ngFor="let l of lista">
+        <td *ngFor="let key of keys">{{ l[key] }}</td>
+      </tr>
     </tbody>
   </table>
 </div>

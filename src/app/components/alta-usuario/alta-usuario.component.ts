@@ -17,10 +17,12 @@ export class AltaUsuarioComponent implements OnInit {
 
   ngOnInit() {
     this.addUsuarioForm = this.formBuilder.group({
+      nombre: ['', [Validators.required]],
       mail: ['', [Validators.required]],
       clave: ['', [Validators.required]],
       clave2: ['', [Validators.required]],
-      tipo: ['', Validators.required]
+      tipo: ['', Validators.required],
+      foto: ['', Validators.required],
     });
 
     this.listadoTipos = [
@@ -37,19 +39,33 @@ export class AltaUsuarioComponent implements OnInit {
   onCrear() {
     this.submitted = true;
     // si es invalido nada
-    if (this.addUsuarioForm.invalid) {
+    if (this.addUsuarioForm.invalid || (this.addUsuarioForm.value.clave !== this.addUsuarioForm.value.clave2)) {
       return;
     }
     const request = this.addUsuarioForm.value;
     console.log('Cargare el obj: ' + request);
-    this.usuarioService.nuevoUsuario(request);
-    console.log('Cargado');
-    this.onReset();
+    this.usuarioService.nuevoUsuario(request).subscribe((data) => {
+      console.log('Cargado');
+      this.onReset();
+    });
   }
 
   onReset() {
     this.submitted = false;
     this.addUsuarioForm.reset();
+  }
+
+  getImagen(readerEvt) {
+    //console.log('change no input file', readerEvt);
+    let file = readerEvt.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.addUsuarioForm.value.foto = reader.result.toString();
+    };
+    reader.onerror = function (error) {
+      console.log('Erro ao ler a imagem : ', error);
+    };
   }
 
 }

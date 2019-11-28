@@ -1,5 +1,4 @@
 import { Injectable } from '@angular/core';
-import { StorageService } from './storage.service';
 import { environment } from 'src/environments/environment';
 import { HttpService } from './http.service';
 
@@ -8,27 +7,30 @@ import { HttpService } from './http.service';
 })
 export class MateriasService {
 
-  constructor(private sto: StorageService, private http: HttpService) {
-    if (!this.sto.get('materias')) {
-      this.sto.set('materias', []);
-    }
+  constructor(private http: HttpService) {
   }
-  nuevaMateria(data) {
-    const listaMaterias = this.sto.get('materias');
-    listaMaterias.push(data);
-    this.sto.set('materias', listaMaterias);
+
+  nuevaMateria(request: any) {
+    return this.http.post(`${environment.URL}/materias/`, request).pipe(response => response);
   }
 
   obtenerMaterias() {
-    const listaMaterias = this.sto.get('materias');
-    return listaMaterias;
+    return this.http.get(`${environment.URL}/materias/`).pipe(response => response);
   }
 
-  inscribirseMateria(idSubject: number) {
-    return this.http.post(`${environment.URL}/Inscriptions/`, {idSubject: idSubject}).pipe(response => response);
+  inscribirseMateria(idMateria) {
+    return this.http.post(`${environment.URL}/Inscriptions/`, { idSubject: idMateria }).pipe(response => response);
   }
 
   materiasPorAlumno() {
     return this.http.get(`${environment.URL}/Inscriptions/SubjectsByStudent`).pipe(response => response);
+  }
+
+  alumnosPorMateria() {
+    return this.http.get(`${environment.URL}/Inscriptions/StudentBySubject`).pipe(response => response);
+  }
+
+  materiasPorProfesor() {
+    return this.http.get(`${environment.URL}/Subject/SubjectByTeacher`).pipe(response => response);
   }
 }

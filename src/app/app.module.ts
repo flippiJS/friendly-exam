@@ -19,7 +19,6 @@ import { VerMateriasComponent } from './components/ver-materias/ver-materias.com
 import { VerUsuariosComponent } from './components/ver-usuarios/ver-usuarios.component';
 import { AltaMateriasComponent } from './components/alta-materias/alta-materias.component';
 import { TablaComponent } from './components/tabla/tabla.component';
-import { TablaUsuariosComponent } from './components/tabla-usuarios/tabla-usuarios.component';
 import { TipoUsuarioPipe } from './pipes/tipo-usuario.pipe';
 import { CupoDirective } from './directives/cupo.directive';
 import { NotaAlumnoPipe } from './pipes/nota-alumno.pipe';
@@ -40,7 +39,6 @@ import { AlumnosEnMateriasComponent } from './components/alumnos-en-materias/alu
     VerUsuariosComponent,
     AltaMateriasComponent,
     TablaComponent,
-    TablaUsuariosComponent,
     TipoUsuarioPipe,
     CupoDirective,
     NotaAlumnoPipe,

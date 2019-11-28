@@ -1,17 +1,16 @@
 import { Injectable } from '@angular/core';
-import { StorageService } from './storage.service';
-import { Router } from '@angular/router';
+import { environment } from 'src/environments/environment';
+import { HttpService } from './http.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LoginService {
 
-  constructor(private sto: StorageService, private router: Router) { }
+  constructor(private http: HttpService) { }
 
-  public listUser = this.sto.get('usuarios');
 
-  public login(data: any) {
+/*   public login(data: any) {
     const user = this.listUser.find(usr => {
       return (data.user === usr.mail) && (data.pass === usr.clave);
     });
@@ -21,5 +20,9 @@ export class LoginService {
     } else {
       localStorage.setItem('usuario', null);
     }
+  } */
+
+  login(data: any) {
+    return this.http.post(`${environment.URL}/Login/`, {email: data.username, password: data.password});
   }
 }

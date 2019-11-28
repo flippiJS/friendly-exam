@@ -7,6 +7,14 @@
 <div class="container">
 
   <form [formGroup]="addUsuarioForm" (ngSubmit)="onCrear()">
+    <div class="form-group mb-3">
+      <input type="text" formControlName="nombre" placeholder="Nombre"
+        class="form-control rounded-pill border-0 shadow-sm px-4"
+        [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+      <div *ngIf="submitted && f.nombre.errors" class="invalid-feedback">
+        <div *ngIf="f.nombre.errors.required">Debe ingresar nombre</div>
+      </div>
+    </div>
 
     <div class="form-group mb-3">
       <input type="text" formControlName="mail" placeholder="Mail"
@@ -43,6 +51,15 @@
       </select>
       <div *ngIf="submitted && f.tipo.errors" class="invalid-feedback">
         <div *ngIf="f.tipo.errors.required">Debe seleccionar tipo</div>
+      </div>
+    </div>
+
+    <div class="form-group mb-3">
+      <input type="file" (change)="getImagen($event, imagen)" formControlName="foto" placeholder="Foto"
+        class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+        [ngClass]="{ 'is-invalid': submitted && f.foto.errors }" />
+      <div *ngIf="submitted && f.foto.errors" class="invalid-feedback">
+        <div *ngIf="f.foto.errors.required">Debe subir Foto</div>
       </div>
     </div>
 

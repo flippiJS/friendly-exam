@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class VerUsuariosComponent implements OnInit {
   listado = [];
+  keys = [];
   constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit() {
@@ -15,7 +16,10 @@ export class VerUsuariosComponent implements OnInit {
   }
 
   obtenerUsuarios() {
-    this.listado = this.usuarioService.obtenerUsuario();
+    this.usuarioService.obtenerUsuarios().subscribe((data) => {
+      this.listado = data;
+      this.keys = Object.keys(this.listado[0]);
+    });
   }
 
   public CargarLista() {

@@ -11,6 +11,7 @@ export class VerMateriasComponent implements OnInit {
   constructor(private materiasService: MateriasService) { }
 
   listado = [];
+  keys= [];
 
   ngOnInit() {
     this.obtenerMaterias();
@@ -18,7 +19,10 @@ export class VerMateriasComponent implements OnInit {
 
 
   obtenerMaterias() {
-    this.listado = this.materiasService.obtenerMaterias();
+    this.materiasService.obtenerMaterias().subscribe((data: any) => {
+      this.listado = data;
+      this.keys = Object.keys(this.listado[0]);
+    });
   }
 
   public CargarLista() {
