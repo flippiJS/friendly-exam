@@ -9,14 +9,16 @@ export class FilterTablePipe implements PipeTransform {
     let filter = args[0];
     if (filter) {
       switch (filter) {
-        case 'Administrador':
+        case '1':
           value = value.filter(user => user.tipo == 1)
           break;
-        case 'Alumno':
+        case '3':
           value = value.filter(user => user.tipo == 3)
           break;
-        case 'Profesor':
+        case '2':
           value = value.filter(user => user.tipo == 2)
+          break;
+        default:
           break;
       }
     }

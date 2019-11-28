@@ -8,7 +8,7 @@
         <th>Accion</th>
       </thead>
       <tbody>
-        <ng-container *ngFor="let item of lista | filterTable:''">
+        <ng-container *ngFor="let item of lista | filterTable:'1'">
           <tr>
             <td>{{ item.id }}</td>
             <td>{{ item.nombre }}</td>
