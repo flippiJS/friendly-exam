@@ -34,8 +34,12 @@ export class AnotarMateriasComponent implements OnInit {
     }
 
     const request = this.addMateriaForm.value;
+    const usuario =  { 
+      id: this.authService.getUsuario().id,
+      nombre: this.authService.getUsuario().nombre
+    };
     console.log('Cargare el obj: ' + request);
-    this.materiasService.inscribirseMateria(request.materia, this.authService.getUsuario().id).subscribe((data) => {
+    this.materiasService.inscribirseMateria(request.materia, usuario).subscribe((data) => {
       console.log('Cargado');
       this.onReset();
     });
