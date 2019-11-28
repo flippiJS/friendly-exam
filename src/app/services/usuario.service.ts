@@ -18,4 +18,8 @@ export class UsuarioService {
     return this.http.get(`${environment.URL}/usuarios/`).pipe(response => response);
   }
 
+  obtenerProfesores(): any {
+    return this.http.get(`${environment.URL}/usuarios/profesores`).pipe(response => response);
+  }
+
 }

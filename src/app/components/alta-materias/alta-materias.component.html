@@ -37,8 +37,8 @@
 
     <div class="form-group mb-3">
       <select  class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" formControlName="profesor" id="profesor">
-        <option *ngFor="let tip of listadoProfesores; let i = index" [value]="listadoProfesores[i].mail">
-          {{tip.mail}}
+        <option *ngFor="let tip of listadoProfesores; let i = index" [value]="listadoProfesores[i]">
+          {{tip.nombre}}
         </option>
       </select>
       <div *ngIf="submitted && f.profesor.errors" class="invalid-feedback">

@@ -19,14 +19,15 @@ export class AltaMateriasComponent implements OnInit {
     this.addMateriaForm = this.formBuilder.group({
       nombre: ['', [Validators.required]],
       cuatrimestre: ['', [Validators.required]],
-      cupos: ['', [Validators.required]],
-      profesor: ['', Validators.required]
+      cupos: [0, [Validators.required]],
+      profesor: [Object, Validators.required]
     });
 
-    this.listadoProfesores = this.usuarioService.obtenerUsuarios().filter(usr => {
-      return (usr.tipo == 2);
+    this.listadoProfesores = 
+    this.usuarioService.obtenerProfesores().subscribe((data) => {
+      this.listadoProfesores = data;
+      this.addMateriaForm.controls.profesor.patchValue(this.listadoProfesores[0]);
     });
-    this.addMateriaForm.controls.profesor.patchValue(this.listadoProfesores[0].mail);
   }
   // para acceder facilmente a los controles del form
   get f() { return this.addMateriaForm.controls; }
@@ -39,9 +40,10 @@ export class AltaMateriasComponent implements OnInit {
     }
     const request = this.addMateriaForm.value;
     console.log('Cargare el obj: ' + request);
-    this.materiasService.nuevaMateria(request);
-    console.log('Cargado');
-    this.onReset();
+    this.materiasService.nuevaMateria(request).subscribe((data) => {
+      console.log('Cargado');
+      this.onReset();
+    });
   }
 
   onReset() {

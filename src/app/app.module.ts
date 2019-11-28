@@ -26,6 +26,7 @@ import { AnotarMateriasComponent } from './components/anotar-materias/anotar-mat
 import { AlumnoMateriasComponent } from './components/alumno-materias/alumno-materias.component';
 import { MisMateriasComponent } from './components/mis-materias/mis-materias.component';
 import { AlumnosEnMateriasComponent } from './components/alumnos-en-materias/alumnos-en-materias.component';
+import { TablaUsuariosComponent } from './components/tabla-usuarios/tabla-usuarios.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { AlumnosEnMateriasComponent } from './components/alumnos-en-materias/alu
     AnotarMateriasComponent,
     AlumnoMateriasComponent,
     MisMateriasComponent,
-    AlumnosEnMateriasComponent
+    AlumnosEnMateriasComponent,
+    TablaUsuariosComponent
   ],
   imports: [
     BrowserModule,
