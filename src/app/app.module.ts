@@ -27,6 +27,7 @@ import { AlumnoMateriasComponent } from './components/alumno-materias/alumno-mat
 import { MisMateriasComponent } from './components/mis-materias/mis-materias.component';
 import { AlumnosEnMateriasComponent } from './components/alumnos-en-materias/alumnos-en-materias.component';
 import { TablaUsuariosComponent } from './components/tabla-usuarios/tabla-usuarios.component';
+import { TablaMateriasComponent } from './components/tabla-materias/tabla-materias.component';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { TablaUsuariosComponent } from './components/tabla-usuarios/tabla-usuari
     AlumnoMateriasComponent,
     MisMateriasComponent,
     AlumnosEnMateriasComponent,
-    TablaUsuariosComponent
+    TablaUsuariosComponent,
+    TablaMateriasComponent
   ],
   imports: [
     BrowserModule,

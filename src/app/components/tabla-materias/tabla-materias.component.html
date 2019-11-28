@@ -1,0 +1,22 @@
+<div class="container">
+    <table class="table">
+      <thead class="thead-primary">
+        <th>ID #</th>
+        <th>Materia</th>
+        <th>Cuatrimestre</th>
+        <th>Cupos</th>
+        <th>Profesor</th>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of lista">
+          <tr>
+            <td>{{ item.id }}</td>
+            <td>{{ item.nombre }}</td>
+            <td>{{ item.cuatrimestre }}</td>
+            <td appCupo [cupo]="item.cupos">{{ item.cupos }}</td>
+            <td>{{ item.profesor.nombre }}</td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>

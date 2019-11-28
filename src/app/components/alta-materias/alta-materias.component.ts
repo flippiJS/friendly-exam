@@ -26,7 +26,6 @@ export class AltaMateriasComponent implements OnInit {
     this.listadoProfesores = 
     this.usuarioService.obtenerProfesores().subscribe((data) => {
       this.listadoProfesores = data;
-      this.addMateriaForm.controls.profesor.patchValue(this.listadoProfesores[0]);
     });
   }
   // para acceder facilmente a los controles del form
@@ -38,6 +37,11 @@ export class AltaMateriasComponent implements OnInit {
     if (this.addMateriaForm.invalid) {
       return;
     }
+    const profesor = this.listadoProfesores[this.addMateriaForm.value.profesor];
+    this.addMateriaForm.value.profesor = { 
+      id: profesor.id,
+      nombre: profesor.nombre
+    };
     const request = this.addMateriaForm.value;
     console.log('Cargare el obj: ' + request);
     this.materiasService.nuevaMateria(request).subscribe((data) => {
