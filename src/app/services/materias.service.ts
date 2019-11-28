@@ -18,12 +18,16 @@ export class MateriasService {
     return this.http.get(`${environment.URL}/materias/`).pipe(response => response);
   }
 
-  inscribirseMateria(idMateria) {
-    return this.http.post(`${environment.URL}/Inscriptions/`, { idSubject: idMateria }).pipe(response => response);
+  obtenerMateriasDisponibles(usuario) {
+    return this.http.post(`${environment.URL}/materias/disponibles`, {usuario}).pipe(response => response);
+  }
+
+  inscribirseMateria(materia, usuario) {
+    return this.http.post(`${environment.URL}/materia/inscribir`, { materia: materia, usuario: usuario }).pipe(response => response);
   }
 
   materiasPorAlumno() {
-    return this.http.get(`${environment.URL}/Inscriptions/SubjectsByStudent`).pipe(response => response);
+    return this.http.get(`${environment.URL}/materias/porAlumno`).pipe(response => response);
   }
 
   alumnosPorMateria() {

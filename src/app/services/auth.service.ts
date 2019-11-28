@@ -14,10 +14,10 @@ export class AuthService {
 
   public getTipo(): number {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
-    return usuario.tipo;
+    return parseInt(usuario.tipo);
   }
 
-  public getUsuario(): number {
+  public getUsuario() {
     const usuario = JSON.parse(localStorage.getItem('usuario'));
     return usuario;
   }

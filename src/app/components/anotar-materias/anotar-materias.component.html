@@ -1,1 +1,31 @@
-<p>anotar-materias works!</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Anotar a materia</h1>
+      <p class="lead"></p>
+    </div>
+  </div>
+  <div class="container">
+  
+    <form [formGroup]="addMateriaForm" (ngSubmit)="onCrear()">
+    
+      <div class="form-group mb-3">
+        <select placeholder="Seleccione materia" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary" formControlName="materia" id="materia">
+          <option *ngFor="let tip of listadoMaterias; let i = index" [value]="tip.id">
+            {{tip.nombre}}
+          </option>
+        </select>
+        <div *ngIf="submitted && f.materia.errors" class="invalid-feedback">
+          <div *ngIf="f.materia.errors.required">Debe seleccionar materia</div>
+        </div>
+      </div>
+  
+      <button *ngIf="!isLoading" type="submit"
+        class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Inscribir</button>
+  
+      <div *ngIf="isLoading" class="d-flex justify-content-center">
+        <div class="spinner-border" role="status">
+          <span class="sr-only">Loading...</span>
+        </div>
+      </div>
+    </form>
+  </div>

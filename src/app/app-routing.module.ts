@@ -18,8 +18,8 @@ const routes: Routes = [
   { path: 'bienvenido', component: BienvenidoComponent },
   {
     path: 'altaUsuario', component: AltaUsuarioComponent,
-    // canActivate: [AuthGuardService],
-    // data: { expectedType: 1 }
+    canActivate: [AuthGuardService],
+    data: { expectedType: 1 }
   },
   {
     path: 'altaMateria', component: AltaMateriasComponent,
@@ -28,13 +28,13 @@ const routes: Routes = [
   },
   {
     path: 'verMaterias', component: VerMateriasComponent,
-    // canActivate: [AuthGuardService],
-    // data: { expectedType: 1 }
+    canActivate: [AuthGuardService],
+    data: { expectedType: 1 }
   },
   {
     path: 'verUsuarios', component: VerUsuariosComponent,
-    // canActivate: [AuthGuardService],
-    // data: { expectedType: 1 }
+    canActivate: [AuthGuardService],
+    data: { expectedType: 1 }
   },
   {
     path: 'misMaterias', component: MisMateriasComponent,
