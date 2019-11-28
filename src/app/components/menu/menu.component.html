@@ -24,10 +24,10 @@
       </li>
 
       <li *ngIf="authService.isAuthenticated && authService.getTipo() == 2" class="nav-item">
-          <a class="nav-link" routerLink="/verUsuarios">Ver usuarios</a>
+          <a class="nav-link" routerLink="/alumnoMaterias">Ver Alumnos</a>
         </li>
         <li *ngIf="authService.isAuthenticated && authService.getTipo() == 2" class="nav-item">
-          <a class="nav-link" routerLink="/verMaterias">Ver materias</a>
+          <a class="nav-link" routerLink="/misMaterias">Mis Materias</a>
         </li>
 
         <li *ngIf="authService.isAuthenticated && authService.getTipo() == 3" class="nav-item">

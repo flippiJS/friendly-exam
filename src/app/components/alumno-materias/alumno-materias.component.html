@@ -1,1 +1,34 @@
-<p>alumno-materias works!</p>
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Alumnos por Materia</h1>
+        <p class="lead"></p>
+    </div>
+</div>
+
+<div class="container">
+    <ng-container *ngFor="let materia of listado">
+        <table class="table">
+            <thead class="thead-primary">
+                <th>#{{ materia.id }}{{ materia.nombre }}</th>
+            </thead>
+        </table>
+        <table *ngIf="materia.alumnos.length > 0" class="table">
+            <thead class="thead-primary">
+                <th>ID #</th>
+                <th>Nombre </th>
+                <th>Nota </th>
+            </thead>
+            <tbody>
+                <ng-container *ngFor="let al of materia.alumnos">
+                    <tr>
+                        <td>{{ al.id }}</td>
+                        <td>{{ al.nombre }}</td>
+                        <td>{{ al.nota ? al.nota : 'No cargada'}}</td>
+                    </tr>
+                </ng-container>
+            </tbody>
+        </table>
+        <p *ngIf="materia.alumnos.length == 0">Sin alumnos incriptos</p>
+    </ng-container>
+
+</div>

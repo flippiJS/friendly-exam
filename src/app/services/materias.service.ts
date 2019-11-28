@@ -30,11 +30,11 @@ export class MateriasService {
     return this.http.post(`${environment.URL}/materias/porAlumno`, {id: id}).pipe(response => response);
   }
 
-  alumnosPorMateria() {
-    return this.http.get(`${environment.URL}/Inscriptions/StudentBySubject`).pipe(response => response);
+  alumnosPorMateria(usuario: any) {
+    return this.http.post(`${environment.URL}/materias/alumnosMateria`, {id: usuario}).pipe(response => response);
   }
 
   materiasPorProfesor() {
-    return this.http.get(`${environment.URL}/Subject/SubjectByTeacher`).pipe(response => response);
+    return this.http.get(`${environment.URL}/materias/`).pipe(response => response);
   }
 }
