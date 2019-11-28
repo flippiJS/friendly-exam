@@ -1,7 +1,5 @@
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-import { PeliculasService } from 'src/app/services/peliculas.service';
-import { Pelicula } from '../../clases/pelicula';
 
 @Component({
   selector: 'app-busqueda',
@@ -10,10 +8,10 @@ import { Pelicula } from '../../clases/pelicula';
 })
 
 export class BusquedaComponent implements OnInit {
-  @Output() public buscar = new EventEmitter<Pelicula[]>();
+  @Output() public buscar = new EventEmitter<[]>();
   public busquedaGroup: FormGroup;
 
-  constructor(private peliculasService: PeliculasService) { }
+  constructor() { }
 
   ngOnInit() {
     this.busquedaGroup = new FormGroup({
@@ -24,15 +22,5 @@ export class BusquedaComponent implements OnInit {
   public Buscar() {
     const nombre: string = this.busquedaGroup.value.nombre;
 
-    this.peliculasService.getPeliculas().subscribe((data: Array<Pelicula>) => {
-      const auxArr: Array<Pelicula> = new Array<Pelicula>();
-
-      for (const peli of data) {
-        if (peli.nombre === nombre) {
-          auxArr.push(peli);
-        }
-      }
-      this.buscar.emit(auxArr);
-    });
   }
 }

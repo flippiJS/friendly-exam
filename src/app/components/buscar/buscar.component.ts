@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { Pelicula } from 'src/app/services/peliculas.service';
 
 @Component({
   selector: 'app-buscar',
@@ -9,11 +8,11 @@ import { Pelicula } from 'src/app/services/peliculas.service';
 export class BuscarComponent implements OnInit {
   ngOnInit() {
   }
-  public lista: Array<Pelicula> = null;
+  public lista: [] = null;
 
   constructor() { }
 
-  public MostrarElemento(event: Array<Pelicula>) {
+  public MostrarElemento(event) {
     // console.log('Mostrar Elemento: ', event);
     this.lista = event;
     // console.log('Lista: ', this.lista);

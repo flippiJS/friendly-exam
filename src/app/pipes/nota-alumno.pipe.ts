@@ -5,7 +5,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 })
 export class NotaAlumnoPipe implements PipeTransform {
 
-  transform(value: number, args?: any): string {
+  transform(value: any, args?: any): string {
     value = parseInt(value);
     switch (value) {
       case 1:

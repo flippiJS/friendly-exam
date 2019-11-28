@@ -1,7 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { PeliculasService } from '../../services/peliculas.service';
 import { TablaComponent } from '../tabla/tabla.component';
-import { Pelicula } from '../../clases/pelicula';
 
 @Component({
   selector: 'app-lista',
@@ -10,8 +8,8 @@ import { Pelicula } from '../../clases/pelicula';
 })
 
 export class ListaComponent implements OnInit {
-  public listado: Array<Pelicula>;
-  constructor(private http: PeliculasService) { }
+  public listado: [];
+  constructor() { }
 
   ngOnInit() {
     console.log('Llamo a traerLibros');
@@ -19,12 +17,7 @@ export class ListaComponent implements OnInit {
   }
 
   public CargarLista() {
-    this.http.getPeliculas().subscribe((data: any) => {
-      /* console.log(data.rta);
-      this.listado = data.rta; */
-      console.log(data);
-      this.listado = data;
-    });
+
   }
 
   Recargar(event) {

@@ -22,4 +22,5 @@ export class UsuarioService {
     const listUsuarios = this.sto.get('usuarios');
     return listUsuarios;
   }
+
 }
