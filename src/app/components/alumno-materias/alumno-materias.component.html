@@ -9,7 +9,7 @@
     <ng-container *ngFor="let materia of listado">
         <table class="table">
             <thead class="thead-primary">
-                <th>#{{ materia.id }}{{ materia.nombre }}</th>
+                <th>#{{ materia.id }} - {{ materia.nombre }}</th>
             </thead>
         </table>
         <table *ngIf="materia.alumnos.length > 0" class="table">
@@ -23,7 +23,7 @@
                     <tr>
                         <td>{{ al.id }}</td>
                         <td>{{ al.nombre }}</td>
-                        <td>{{ al.nota ? al.nota : 'No cargada'}}</td>
+                        <td>{{ al.nota | notaAlumno}}</td>
                     </tr>
                 </ng-container>
             </tbody>

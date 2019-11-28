@@ -28,6 +28,8 @@ export class NotaAlumnoPipe implements PipeTransform {
         return 'Promocion';
       case 10:
         return 'Promocion';
+      default:
+        return 'No cargada';
     }
   }
 
