@@ -28,6 +28,7 @@ import { MisMateriasComponent } from './components/mis-materias/mis-materias.com
 import { AlumnosEnMateriasComponent } from './components/alumnos-en-materias/alumnos-en-materias.component';
 import { TablaUsuariosComponent } from './components/tabla-usuarios/tabla-usuarios.component';
 import { TablaMateriasComponent } from './components/tabla-materias/tabla-materias.component';
+import { FilterTablePipe } from './pipes/filter-table.pipe';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { TablaMateriasComponent } from './components/tabla-materias/tabla-materi
     MisMateriasComponent,
     AlumnosEnMateriasComponent,
     TablaUsuariosComponent,
-    TablaMateriasComponent
+    TablaMateriasComponent,
+    FilterTablePipe
   ],
   imports: [
     BrowserModule,
