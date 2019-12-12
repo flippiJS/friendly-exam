@@ -15,4 +15,8 @@ export class HttpService {
   post(url: string, body: any) {
     return this.http.post(url, body).pipe(response => response);
   }
+
+  delete(url: string) {
+    return this.http.delete(url).pipe(response => response);
+  }
 }

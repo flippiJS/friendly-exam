@@ -6,6 +6,7 @@
         <th>Cuatrimestre</th>
         <th>Cupos</th>
         <th>Profesor</th>
+        <th>Foto</th>
       </thead>
       <tbody>
         <ng-container *ngFor="let item of lista">
@@ -15,6 +16,11 @@
             <td>{{ item.cuatrimestre }}</td>
             <td appCupo [cupo]="item.cupos">{{ item.cupos }}</td>
             <td>{{ item.profesor.nombre }}</td>
+            <td>
+                <img *ngIf="item.foto" src="data:image/png;base64,{{ item.foto }}">
+                <span *ngIf="!item.foto" >Sin foto</span>
+            </td>
+
           </tr>
         </ng-container>
       </tbody>

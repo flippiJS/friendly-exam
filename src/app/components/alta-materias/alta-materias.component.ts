@@ -20,7 +20,8 @@ export class AltaMateriasComponent implements OnInit {
       nombre: ['', [Validators.required]],
       cuatrimestre: ['', [Validators.required]],
       cupos: [0, [Validators.required]],
-      profesor: [Object, Validators.required]
+      profesor: [Object, Validators.required],
+      foto: ['', Validators.required],
     });
 
     this.listadoProfesores = 
@@ -53,6 +54,19 @@ export class AltaMateriasComponent implements OnInit {
   onReset() {
     this.submitted = false;
     this.addMateriaForm.reset();
+  }
+
+  getImagen(readerEvt) {
+    //console.log('change no input file', readerEvt);
+    let file = readerEvt.target.files[0];
+    var reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () => {
+      this.addMateriaForm.value.foto = reader.result.toString();
+    };
+    reader.onerror = function (error) {
+      console.log('Erro ao ler a imagem : ', error);
+    };
   }
 
 }

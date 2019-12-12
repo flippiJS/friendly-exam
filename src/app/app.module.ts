@@ -9,6 +9,7 @@ import { ReactiveFormsModule } from "@angular/forms";
 // Http
 import { HttpClientModule } from "@angular/common/http";
 // Componentes
+
 import { MenuComponent } from './components/menu/menu.component';
 import { BienvenidoComponent } from './components/bienvenido/bienvenido.component';
 import { LoginComponent } from './components/login/login.component';
@@ -29,6 +30,7 @@ import { AlumnosEnMateriasComponent } from './components/alumnos-en-materias/alu
 import { TablaUsuariosComponent } from './components/tabla-usuarios/tabla-usuarios.component';
 import { TablaMateriasComponent } from './components/tabla-materias/tabla-materias.component';
 import { FilterTablePipe } from './pipes/filter-table.pipe';
+import { BotonComponent } from './components/boton/boton.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +53,8 @@ import { FilterTablePipe } from './pipes/filter-table.pipe';
     AlumnosEnMateriasComponent,
     TablaUsuariosComponent,
     TablaMateriasComponent,
-    FilterTablePipe
+    FilterTablePipe,
+    BotonComponent
   ],
   imports: [
     BrowserModule,

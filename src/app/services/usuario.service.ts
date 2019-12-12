@@ -22,4 +22,7 @@ export class UsuarioService {
     return this.http.get(`${environment.URL}/usuarios/profesores`).pipe(response => response);
   }
 
+  deleteUsuario(id: any) {
+    return this.http.delete(`${environment.URL}/usuarios/` + id).pipe(response => response);
+  }
 }

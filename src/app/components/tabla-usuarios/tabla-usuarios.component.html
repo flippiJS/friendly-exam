@@ -8,15 +8,14 @@
         <th>Accion</th>
       </thead>
       <tbody>
-        <ng-container *ngFor="let item of lista | filterTable:'1'">
-          <tr>
+        <ng-container *ngFor="let item of lista | filterTable:'0'">
+          <tr *ngIf="!item.fechaBaja">
             <td>{{ item.id }}</td>
             <td>{{ item.nombre }}</td>
             <td>{{ item.mail }}</td>
             <td>{{ item.tipo | tipoUsuario }}</td>
             <td>
-              <button (recargar)="recargarLista($event)" >Recargar
-              </button>
+              <app-boton (recargar)="recargarLista($event)" [id]="item.id"></app-boton>
             </td>
           </tr>
         </ng-container>
