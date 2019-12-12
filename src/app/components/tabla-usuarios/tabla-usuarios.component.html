@@ -1,4 +1,8 @@
 <div class="container">
+    <button>Admin</button>
+    <button>Profesor</button>
+    <button>Alumno</button>
+    <button>Todos</button>
     <table class="table">
       <thead class="thead-primary">
         <th>ID #</th>
@@ -21,4 +25,27 @@
         </ng-container>
       </tbody>
     </table>
+    <h2>Usuarios borrados</h2>
+    <table class="table">
+            <thead class="thead-primary">
+              <th>ID #</th>
+              <th>Nombre</th>
+              <th>Mail</th>
+              <th>Rol</th>
+              <th>Accion</th>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of lista | filterTable:'0'">
+                <tr *ngIf="item.fechaBaja">
+                  <td>{{ item.id }}</td>
+                  <td>{{ item.nombre }}</td>
+                  <td>{{ item.mail }}</td>
+                  <td>{{ item.tipo | tipoUsuario }}</td>
+                  <td>
+                    Borrado
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+          </table>    
   </div>

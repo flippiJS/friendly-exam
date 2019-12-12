@@ -31,6 +31,7 @@ import { TablaUsuariosComponent } from './components/tabla-usuarios/tabla-usuari
 import { TablaMateriasComponent } from './components/tabla-materias/tabla-materias.component';
 import { FilterTablePipe } from './pipes/filter-table.pipe';
 import { BotonComponent } from './components/boton/boton.component';
+import { AltaExamenComponent } from './components/alta-examen/alta-examen.component';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { BotonComponent } from './components/boton/boton.component';
     TablaUsuariosComponent,
     TablaMateriasComponent,
     FilterTablePipe,
-    BotonComponent
+    BotonComponent,
+    AltaExamenComponent
   ],
   imports: [
     BrowserModule,

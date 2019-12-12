@@ -1,0 +1,61 @@
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+        <h1 class="display-4">Agregar Examen</h1>
+        <p class="lead"></p>
+    </div>
+</div>
+<div class="container">
+
+    <form [formGroup]="addExamenForm" (ngSubmit)="onCrear()">
+
+        <div class="form-group mb-3">
+            <select placeholder="Seleccione materia" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                formControlName="materias" id="materias">
+                <option *ngFor="let tip of listadoMaterias; let i = index" [value]="i">
+                    {{tip.nombre}}
+                </option>
+            </select>
+            <div *ngIf="submitted && f.materia.errors" class="invalid-feedback">
+                <div *ngIf="f.materia.errors.required">Debe seleccionar materia</div>
+            </div>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <select placeholder="Seleccione alumno" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                formControlName="alumno" id="alumno">
+                <option *ngFor="let tip of listadoProfesores; let i = index" [value]="i">
+                    {{tip.nombre}}
+                </option>
+            </select>
+            <div *ngIf="submitted && f.alumno.errors" class="invalid-feedback">
+                <div *ngIf="f.alumno.errors.required">Debe seleccionar alumno</div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <input type="number" min="1" max="10" formControlName="nota" placeholder="Nota" class="form-control rounded-pill border-0 shadow-sm px-4"
+                [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+            <div *ngIf="submitted && f.nota.errors" class="invalid-feedback">
+                <div *ngIf="f.nota.errors.required">Debe ingresar nota</div>
+            </div>
+        </div>
+
+        <div class="form-group mb-3">
+            <input type="text" formControlName="fecha" placeholder="Fecha" class="form-control rounded-pill border-0 shadow-sm px-4"
+                [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+            <div *ngIf="submitted && f.fecha.errors" class="invalid-feedback">
+                <div *ngIf="f.fecha.errors.required">Debe ingresar fecha</div>
+            </div>
+        </div>
+
+
+        <button *ngIf="!isLoading" type="submit" class="btn btn-dark btn-block text-uppercase mb-2 rounded-pill shadow-sm">Crear</button>
+
+        <div *ngIf="isLoading" class="d-flex justify-content-center">
+            <div class="spinner-border" role="status">
+                <span class="sr-only">Loading...</span>
+            </div>
+        </div>
+    </form>
+</div>
