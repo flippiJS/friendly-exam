@@ -24,26 +24,31 @@
       </li>
 
       <li *ngIf="authService.isAuthenticated && authService.getTipo() == 2" class="nav-item">
-          <a class="nav-link" routerLink="/alumnoMaterias">Ver Alumnos</a>
-        </li>
-        <li *ngIf="authService.isAuthenticated && authService.getTipo() == 2" class="nav-item">
-          <a class="nav-link" routerLink="/misMaterias">Mis Materias</a>
-        </li>
-
-        <li *ngIf="authService.isAuthenticated && authService.getTipo() == 3" class="nav-item">
-            <a class="nav-link" routerLink="/anotarMaterias">Anotar Materias</a>
-          </li>
-          <li *ngIf="authService.isAuthenticated && authService.getTipo() == 3" class="nav-item">
-            <a class="nav-link" routerLink="/alumnoEnMaterias">Mis materias</a>
-          </li>
+        <a class="nav-link" routerLink="/alumnoMaterias">Ver Alumnos</a>
+      </li>
+      <li *ngIf="authService.isAuthenticated && authService.getTipo() == 2" class="nav-item">
+        <a class="nav-link" routerLink="/misMaterias">Mis Materias</a>
+      </li>
+      <li *ngIf="authService.isAuthenticated && authService.getTipo() == 2" class="nav-item">
+        <a class="nav-link" routerLink="/altaExamen">Alta Examen</a>
+      </li>
+      <li *ngIf="authService.isAuthenticated && authService.getTipo() == 2" class="nav-item">
+        <a class="nav-link" routerLink="/verExamenes">Ver Examenes</a>
+      </li>
+      <li *ngIf="authService.isAuthenticated && authService.getTipo() == 3" class="nav-item">
+        <a class="nav-link" routerLink="/anotarMaterias">Anotar Materias</a>
+      </li>
+      <li *ngIf="authService.isAuthenticated && authService.getTipo() == 3" class="nav-item">
+        <a class="nav-link" routerLink="/alumnoEnMaterias">Mis materias</a>
+      </li>
       <li *ngIf="authService.isAuthenticated" class="nav-item">
         <a class="nav-link">
           <app-ver-mail></app-ver-mail>
         </a>
       </li>
       <li *ngIf="authService.isAuthenticated" class="nav-item">
-          <a class="nav-link" (click)="logout()">Salir</a>
-        </li>
+        <a class="nav-link" (click)="logout()">Salir</a>
+      </li>
     </ul>
   </div>
 </nav>

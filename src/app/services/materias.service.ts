@@ -37,4 +37,9 @@ export class MateriasService {
   materiasPorProfesor() {
     return this.http.get(`${environment.URL}/materias/`).pipe(response => response);
   }
+
+  nuevoExamen(examen: any) {
+    return this.http.post(`${environment.URL}/examenes`, {examen: examen}).pipe(response => response);
+  }
+
 }

@@ -9,8 +9,8 @@
     <form [formGroup]="addExamenForm" (ngSubmit)="onCrear()">
 
         <div class="form-group mb-3">
-            <select placeholder="Seleccione materia" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
-                formControlName="materias" id="materias">
+            <select (change)="onChange($event.target.value)" placeholder="Seleccione materia" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
+                formControlName="materia" id="materia">
                 <option *ngFor="let tip of listadoMaterias; let i = index" [value]="i">
                     {{tip.nombre}}
                 </option>
@@ -24,7 +24,7 @@
         <div class="form-group mb-3">
             <select placeholder="Seleccione alumno" class="form-control rounded-pill border-0 shadow-sm px-4 text-primary"
                 formControlName="alumno" id="alumno">
-                <option *ngFor="let tip of listadoProfesores; let i = index" [value]="i">
+                <option *ngFor="let tip of listadoAlumnos; let i = index" [value]="i">
                     {{tip.nombre}}
                 </option>
             </select>
@@ -35,7 +35,7 @@
 
         <div class="form-group mb-3">
             <input type="number" min="1" max="10" formControlName="nota" placeholder="Nota" class="form-control rounded-pill border-0 shadow-sm px-4"
-                [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+                [ngClass]="{ 'is-invalid': submitted && f.nota.errors }" />
             <div *ngIf="submitted && f.nota.errors" class="invalid-feedback">
                 <div *ngIf="f.nota.errors.required">Debe ingresar nota</div>
             </div>
@@ -43,7 +43,7 @@
 
         <div class="form-group mb-3">
             <input type="text" formControlName="fecha" placeholder="Fecha" class="form-control rounded-pill border-0 shadow-sm px-4"
-                [ngClass]="{ 'is-invalid': submitted && f.nombre.errors }" />
+                [ngClass]="{ 'is-invalid': submitted && f.fecha.errors }" />
             <div *ngIf="submitted && f.fecha.errors" class="invalid-feedback">
                 <div *ngIf="f.fecha.errors.required">Debe ingresar fecha</div>
             </div>

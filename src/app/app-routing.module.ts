@@ -13,6 +13,8 @@ import { VerMateriasComponent } from './components/ver-materias/ver-materias.com
 import { VerUsuariosComponent } from './components/ver-usuarios/ver-usuarios.component';
 import { AltaMateriasComponent } from './components/alta-materias/alta-materias.component';
 import { AlumnoMateriasComponent } from './components/alumno-materias/alumno-materias.component';
+import { AltaExamenComponent } from './components/alta-examen/alta-examen.component';
+import { VerExamenesComponent } from './components/ver-examenes/ver-examenes.component';
 
 const routes: Routes = [
   { path: 'bienvenido', component: BienvenidoComponent },
@@ -46,6 +48,16 @@ const routes: Routes = [
     canActivate: [AuthGuardService],
     data: { expectedType: 2 }
   },
+  {
+    path: 'altaExamen', component: AltaExamenComponent,
+    canActivate: [AuthGuardService],
+    data: { expectedType: 2 }
+  },  
+  {
+    path: 'verExamenes', component: VerExamenesComponent,
+    canActivate: [AuthGuardService],
+    data: { expectedType: 2 }
+  },    
   {
     path: 'anotarMaterias', component: AnotarMateriasComponent,
     canActivate: [AuthGuardService],
