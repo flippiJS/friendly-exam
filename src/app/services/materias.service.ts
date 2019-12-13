@@ -42,4 +42,7 @@ export class MateriasService {
     return this.http.post(`${environment.URL}/examenes`, {examen: examen}).pipe(response => response);
   }
 
+  obtenerExamenes() {
+    return this.http.get(`${environment.URL}/examenes/`).pipe(response => response);
+  }  
 }

@@ -33,6 +33,7 @@ import { FilterTablePipe } from './pipes/filter-table.pipe';
 import { BotonComponent } from './components/boton/boton.component';
 import { AltaExamenComponent } from './components/alta-examen/alta-examen.component';
 import { VerExamenesComponent } from './components/ver-examenes/ver-examenes.component';
+import { TablaExamenesComponent } from './components/tabla-examenes/tabla-examenes.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { VerExamenesComponent } from './components/ver-examenes/ver-examenes.com
     FilterTablePipe,
     BotonComponent,
     AltaExamenComponent,
-    VerExamenesComponent
+    VerExamenesComponent,
+    TablaExamenesComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,25 @@
+<div class="container">
+    <table class="table">
+      <thead class="thead-primary">
+        <th>Materia</th>
+        <th>Alumno</th>
+        <th>Nota</th>
+        <th>Fecha</th>
+        <th>Foto alumno</th>
+      </thead>
+      <tbody>
+        <ng-container *ngFor="let item of lista">
+          <tr>
+            <td>{{ item.examen.materia.nombre }}</td>
+            <td>{{ item.examen.alumno.nombre }}</td>
+            <td>{{ item.examen.nota}} {{ item.examen.nota | notaAlumno}}</td>
+            <td>{{ item.examen.fecha }}</td>
+            <td>
+                <img *ngIf="item.foto" src="data:image/png;base64,{{ item.foto }}">
+                <span *ngIf="!item.foto" >Sin foto</span>
+            </td>
+          </tr>
+        </ng-container>
+      </tbody>
+    </table>
+  </div>

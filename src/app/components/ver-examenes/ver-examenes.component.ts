@@ -13,18 +13,18 @@ export class VerExamenesComponent implements OnInit {
   keys= [];
 
   ngOnInit() {
-    this.obtenerMaterias();
+    this.obtenerExamenes();
   }
 
 
-  obtenerMaterias() {
-    this.materiasService.obtenerMaterias().subscribe((data: any) => {
+  obtenerExamenes() {
+    this.materiasService.obtenerExamenes().subscribe((data: any) => {
       this.listado = data;
       this.keys = Object.keys(this.listado[0]);
     });
   }
 
   public CargarLista() {
-    this.obtenerMaterias();
+    this.obtenerExamenes();
   }
 }
